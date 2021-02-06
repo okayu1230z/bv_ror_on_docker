@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+      - bv_ror_bundle:/usr/local/bundle
+    tty: true
+    stdin_open: true
+  db:
+    image: mysql:8.0
+    volumes:
+      - bv_ror_mysql_data:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - bv_ror_node_modules:/app/node_modules
+    ports:
+      - '8080:8080'
+    tty: true
+    stdin_open: true
+    command: npm run serve
+
+volumes:
+  bv_ror_mysql_data:
+  bv_ror_bundle:
+  bv_ror_node_modules:
