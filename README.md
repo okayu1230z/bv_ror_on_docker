@@ -1,6 +1,6 @@
-# Vue.js + RoR on Docker
+# BootstrapVue + RoR on Docker
 
-Vue.js (^3.0.0) & Ruby on Rails (~> 6.0.3) & MySQL (8.0) development & production environment on Docker
+BootstrapVue (^4.6.0) & Vue.js (^2.6.11) & Ruby on Rails (~> 6.0.3) & MySQL (8.0) development & production environment on Docker
 
 # How to setup
 
