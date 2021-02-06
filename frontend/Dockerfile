@@ -5,7 +5,6 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
 RUN apk update && npm install -g @vue/cli
-RUN npm install bootstrap-vue bootstrap
 
-COPY package.json .
-RUN npm install
+#COPY package.json .
+#RUN npm install

@@ -6,7 +6,19 @@ BootstrapVue (^4.6.0) & Vue.js (^2.6.11) & Ruby on Rails (^6.0.0) & MySQL (8.0) 
 
 Please exec:
 
+`$ docker-compose run frontend npm install @vue/cli bootstrap-vue bootstrap`
+
+Please edit Dockerfile, Uncomment out:
+
+```
+COPY package.json .
+```
+
+Finally,
+
 `$ docker-compose up`
+
+After that, please docker-compose up every time you execute it.
 
 # Maintenance
 
@@ -25,7 +37,3 @@ If you want to webpacker's install command:
 If you see this error `ActiveRecord::NoDatabaseError`:
 
 `$ docker-compose run backend rails db:create`
-
-If you see this error `bootstrap-vue in ./src/main.js`
-
-`docker-compose run frontend npm install --save boostrap-vue bootstrap`
